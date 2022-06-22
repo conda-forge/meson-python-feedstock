@@ -1,4 +1,4 @@
-From 96b1e0e8d20396915170abfe5a804deece53f334 Mon Sep 17 00:00:00 2001
+From 0bab2ce11f1c881eb6af32138a2d1074558eff47 Mon Sep 17 00:00:00 2001
 From: Sebastian Ehlert <28669218+awvwgk@users.noreply.github.com>
 Date: Fri, 20 May 2022 22:51:57 +0200
 Subject: [PATCH] fix overdependency on ninja
@@ -8,7 +8,7 @@ Subject: [PATCH] fix overdependency on ninja
  1 file changed, 2 deletions(-)
 
 diff --git a/pyproject.toml b/pyproject.toml
-index d61a210..b66565a 100644
+index 9a4e552..9768a4f 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
 @@ -3,7 +3,6 @@ build-backend = 'mesonpy'
@@ -16,7 +16,7 @@ index d61a210..b66565a 100644
  requires = [
    'meson>=0.62.0',
 -  'ninja',
-   'pep621>=0.3.0',
+   'pyproject-metadata>=0.5.0',
    'tomli>=1.0.0',
    'typing-extensions>=3.7.4; python_version<"3.8"',
 @@ -28,7 +27,6 @@ classifiers = [
@@ -24,7 +24,7 @@ index d61a210..b66565a 100644
    'colorama; os_name == "nt"',
    'meson>=0.60.0',
 -  'ninja',
-   'pep621>=0.3.0', # not a hard dependency, only needed for projects that use PEP 621 metadata
+   'pyproject-metadata>=0.5.0', # not a hard dependency, only needed for projects that use PEP 621 metadata
    'tomli>=1.0.0',
    'typing-extensions>=3.7.4; python_version<"3.8"',
 -- 

@@ -1,4 +1,4 @@
-{% set version = "0.5.0" %}
+{% set version = "0.6.0" %}
 
 package:
   name: meson-python
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/FFY00/meson-python/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 462be0dc5557324a62406f8e4ffc05431dd820a9c7811ecd3c7b7cc0c9dc904d
+  sha256: 493d1fb9440e90a96a9d6b8271f309c328c3c597e88cd14d70b9bbc1e13ebe28
   patches:
     - patches/0001-fix-overdependency-on-ninja.patch
 
@@ -20,7 +20,7 @@ requirements:
     - colorama
     - meson >=0.60.0
     - ninja
-    - pep621 >=0.3.0
+    - pyproject-metadata >=0.5.0
     - pip
     - python >=3.7
     - tomli >=1.0.0
@@ -29,7 +29,7 @@ requirements:
     - colorama
     - meson >=0.60.0
     - ninja
-    - pep621 >=0.3.0
+    - pyproject-metadata >=0.5.0
     - python >=3.7
     - tomli >=1.0.0
     - typing-extensions >=3.7.4
