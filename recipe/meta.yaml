@@ -1,15 +1,14 @@
-{% set name = "meson-python" %}
 {% set version = "0.5.0" %}
 
 package:
-  name: {{ name|lower }}
+  name: meson-python
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/meson_python-{{ version }}.tar.gz
-  sha256: 84d2610829b1773c098055b83a04258cd92079f3cf8e96d3bcc2b31513e5cf83
+  url: https://github.com/FFY00/meson-python/archive/refs/tags/{{ version }}.tar.gz
+  sha256: 462be0dc5557324a62406f8e4ffc05431dd820a9c7811ecd3c7b7cc0c9dc904d
   patches:
-    - ninja-overdep.patch
+    - patches/0001-fix-overdependency-on-ninja.patch
 
 build:
   noarch: python
