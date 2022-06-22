@@ -56,7 +56,7 @@ about:
   home: https://github.com/FFY00/meson-python
   doc_url: https://meson-python.readthedocs.io/en/latest/
   summary: Meson Python build backend (PEP 517)
-  license: EUPL-1.2
+  license: MIT
   license_file: LICENSE
 
 extra:
