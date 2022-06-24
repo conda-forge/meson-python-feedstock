@@ -1,15 +1,14 @@
-{% set name = "meson-python" %}
-{% set version = "0.5.0" %}
+{% set version = "0.6.0" %}
 
 package:
-  name: {{ name|lower }}
+  name: meson-python
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/meson_python-{{ version }}.tar.gz
-  sha256: 84d2610829b1773c098055b83a04258cd92079f3cf8e96d3bcc2b31513e5cf83
+  url: https://github.com/FFY00/meson-python/archive/refs/tags/{{ version }}.tar.gz
+  sha256: 493d1fb9440e90a96a9d6b8271f309c328c3c597e88cd14d70b9bbc1e13ebe28
   patches:
-    - ninja-overdep.patch
+    - patches/0001-fix-overdependency-on-ninja.patch
 
 build:
   noarch: python
@@ -21,7 +20,7 @@ requirements:
     - colorama
     - meson >=0.60.0
     - ninja
-    - pep621 >=0.3.0
+    - pyproject-metadata >=0.5.0
     - pip
     - python >=3.7
     - tomli >=1.0.0
@@ -30,7 +29,7 @@ requirements:
     - colorama
     - meson >=0.60.0
     - ninja
-    - pep621 >=0.3.0
+    - pyproject-metadata >=0.5.0
     - python >=3.7
     - tomli >=1.0.0
     - typing-extensions >=3.7.4
@@ -57,7 +56,7 @@ about:
   home: https://github.com/FFY00/meson-python
   doc_url: https://meson-python.readthedocs.io/en/latest/
   summary: Meson Python build backend (PEP 517)
-  license: EUPL-1.2
+  license: MIT
   license_file: LICENSE
 
 extra:

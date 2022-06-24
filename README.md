@@ -3,7 +3,7 @@ About meson-python
 
 Home: https://github.com/FFY00/meson-python
 
-Package license: EUPL-1.2
+Package license: MIT
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/meson-python-feedstock/blob/main/LICENSE.txt)
 
