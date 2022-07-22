@@ -1,4 +1,4 @@
-{% set version = "0.6.0" %}
+{% set version = "0.7.0" %}
 
 package:
   name: meson-python
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/FFY00/meson-python/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 493d1fb9440e90a96a9d6b8271f309c328c3c597e88cd14d70b9bbc1e13ebe28
+  sha256: 63516ad7ada4721c3c23d7fce396d5aa9d5248b134077d5fd782c40ca803c5ee
   patches:
     - patches/0001-fix-overdependency-on-ninja.patch
 
