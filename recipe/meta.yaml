@@ -1,4 +1,4 @@
-{% set version = "0.7.0" %}
+{% set version = "0.8.0" %}
 
 package:
   name: meson-python
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/FFY00/meson-python/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 63516ad7ada4721c3c23d7fce396d5aa9d5248b134077d5fd782c40ca803c5ee
+  sha256: 4eeae17869f9f501785c286ee8c30073d6cffea5499f80ea97195b2f593151b4
   patches:
     - patches/0001-fix-overdependency-on-ninja.patch
 
@@ -18,7 +18,7 @@ build:
 requirements:
   host:
     - colorama
-    - meson >=0.60.0
+    - meson >=0.62.0
     - ninja
     - pyproject-metadata >=0.5.0
     - pip
@@ -40,7 +40,7 @@ test:
     - mesonpy
   commands:
     - pip check
-    - pytest tests -vv -k "not test_contents_unstaged"
+    - pytest tests -vv
   source_files:
     - tests/
   requires:
