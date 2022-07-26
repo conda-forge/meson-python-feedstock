@@ -18,7 +18,7 @@ build:
 requirements:
   host:
     - colorama
-    - meson >=0.60.0
+    - meson >=0.62.0
     - ninja
     - pyproject-metadata >=0.5.0
     - pip
@@ -27,7 +27,7 @@ requirements:
     - typing-extensions >=3.7.4
   run:
     - colorama
-    - meson >=0.60.0
+    - meson >=0.62.0
     - ninja
     - pyproject-metadata >=0.5.0
     - python >=3.7
@@ -40,7 +40,7 @@ test:
     - mesonpy
   commands:
     - pip check
-    - pytest tests -vv -k "not test_contents_unstaged"
+    - pytest tests -vv
   source_files:
     - tests/
   requires:
