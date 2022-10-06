@@ -9,6 +9,7 @@ source:
   sha256: 8b50f6e90028e94d4fee97b4dd9e24659754e6a67e9163b7ccd51f0ef452573b
   patches:
     - patches/0001-fix-overdependency-on-ninja.patch
+    - patches/0002-fix-for-executable-bit-test.patch
 
 build:
   noarch: python
