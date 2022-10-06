@@ -10,6 +10,7 @@ source:
   patches:
     - patches/0001-fix-overdependency-on-ninja.patch
     - patches/0002-fix-for-executable-bit-test.patch
+    - patches/0003-meson_backport.patch 
 
 build:
   noarch: python
