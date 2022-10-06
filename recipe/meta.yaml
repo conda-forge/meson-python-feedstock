@@ -1,4 +1,4 @@
-{% set version = "0.9.0" %}
+{% set version = "0.10.0" %}
 
 package:
   name: meson-python
@@ -6,11 +6,11 @@ package:
 
 source:
   url: https://github.com/FFY00/meson-python/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 8b50f6e90028e94d4fee97b4dd9e24659754e6a67e9163b7ccd51f0ef452573b
+  sha256: e3e79e592b8ad79e22292ab76b7fcde2af3aeebc4bd76f687fb19e5672908a40
   patches:
     - patches/0001-fix-overdependency-on-ninja.patch
     - patches/0002-fix-for-executable-bit-test.patch
-    - patches/0003-meson_backport.patch 
+    - patches/0003-meson_backport.patch
 
 build:
   noarch: python
