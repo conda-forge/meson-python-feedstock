@@ -43,6 +43,7 @@ test:
     - pytest tests -vv
   source_files:
     - tests/
+    - docs/
   requires:
     - {{ compiler('c') }}
     - git
