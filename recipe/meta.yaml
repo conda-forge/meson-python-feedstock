@@ -46,6 +46,7 @@ test:
     - docs/
   requires:
     - {{ compiler('c') }}
+    - cython
     - git
     - gitpython
     - patchelf  # [linux]
