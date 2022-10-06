@@ -1,0 +1,25 @@
+From 370f7254a9351ea146a9830b12ba99978ba2e3b3 Mon Sep 17 00:00:00 2001
+From: Ralf Gommers <ralf.gommers@gmail.com>
+Date: Thu, 6 Oct 2022 20:18:43 +0200
+Subject: [PATCH] TST: update the test for `install_subdir` for fix in meson
+ 0.63.3
+
+We weren't sure if the fix we needed was getting backported,
+but it has been.
+---
+ tests/test_wheel.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tests/test_wheel.py b/tests/test_wheel.py
+index 818367f..aab0523 100644
+--- a/tests/test_wheel.py
++++ b/tests/test_wheel.py
+@@ -107,7 +107,7 @@ def test_scipy_like(wheel_scipy_like):
+     # 0.63.2: https://github.com/mesonbuild/meson/pull/10765
+     # A backport of the fix may land in 0.63.3, if so then remove the version
+     # check here and add the two expected files unconditionally.
+-    if meson_version and meson_version >= '0.63.99':
++    if meson_version and meson_version >= '0.63.3':
+         expecting |= {
+             'mypkg/submod/__init__.py',
+             'mypkg/submod/unknown_filetype.npq',
