@@ -7,8 +7,6 @@ package:
 source:
   url: https://github.com/mesonbuild/meson-python/archive/refs/tags/{{ version }}.tar.gz
   sha256: 2b6e405e273aa129a972393b620911b39fb2b0b816b34e1860b12e9f19b484f3
-  patches:
-    - patches/0003-meson_backport.patch
 
 build:
   noarch: python
