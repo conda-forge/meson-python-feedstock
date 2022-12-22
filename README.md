@@ -1,7 +1,7 @@
 About meson-python
 ==================
 
-Home: https://github.com/FFY00/meson-python
+Home: https://github.com/mesonbuild/meson-python
 
 Package license: MIT
 
