@@ -1,4 +1,4 @@
-{% set version = "0.12.0" %}
+{% set version = "0.12.1" %}
 
 package:
   name: meson-python
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/mesonbuild/meson-python/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 7fed5b541507b28363e38e9389f939840ea4dec8dcb72143006ded7b90a052e1
+  sha256: 8e9c726aeba817c21209fc89eac38ca069e79b5238ac023f83a0be507a160804
 
 build:
   noarch: python
