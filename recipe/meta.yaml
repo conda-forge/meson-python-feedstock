@@ -7,11 +7,14 @@ package:
 source:
   url: https://github.com/mesonbuild/meson-python/archive/refs/tags/{{ version }}.tar.gz
   sha256: 8e9c726aeba817c21209fc89eac38ca069e79b5238ac023f83a0be507a160804
+  patches:
+    # backport https://github.com/mesonbuild/meson-python/pull/322 for cross-compilation support
+    - patches/0001-ENH-do-not-check-extension-module-file-name-against-.patch
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
