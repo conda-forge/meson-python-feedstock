@@ -7,9 +7,6 @@ package:
 source:
   url: https://github.com/mesonbuild/meson-python/archive/refs/tags/{{ version }}.tar.gz
   sha256: a34a5aa19503d265f9abe2bb1a36251ab7488d05f181f85a03d4b9f3c93bf729
-  patches:
-    # backport https://github.com/mesonbuild/meson-python/pull/322 for cross-compilation support
-    - patches/0001-ENH-do-not-check-extension-module-file-name-against-.patch
 
 build:
   noarch: python
@@ -21,20 +18,17 @@ requirements:
     - colorama
     - meson >=0.63.3
     - ninja
-    - pyproject-metadata >=0.6.1
+    - pyproject-metadata >=0.7.1
     - pip
     - python >=3.7
     - tomli >=1.0.0
-    - typing-extensions >=3.7.4
   run:
     - colorama
     - meson >=0.63.3
     - ninja
-    - pyproject-metadata >=0.6.1
+    - pyproject-metadata >=0.7.1
     - python >=3.7
     - tomli >=1.0.0
-    - typing-extensions >=3.7.4
-    - wheel >=0.36.0
 
 test:
   imports:
