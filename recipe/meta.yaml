@@ -1,4 +1,4 @@
-{% set version = "0.12.1" %}
+{% set version = "0.13.0" %}
 
 package:
   name: meson-python
@@ -6,35 +6,32 @@ package:
 
 source:
   url: https://github.com/mesonbuild/meson-python/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 8e9c726aeba817c21209fc89eac38ca069e79b5238ac023f83a0be507a160804
+  sha256: a34a5aa19503d265f9abe2bb1a36251ab7488d05f181f85a03d4b9f3c93bf729
   patches:
-    # backport https://github.com/mesonbuild/meson-python/pull/322 for cross-compilation support
-    - patches/0001-ENH-do-not-check-extension-module-file-name-against-.patch
+    # Patch for `test_user_args` failure (fixed upstream, remove in next release)
+    - patches/0001-TST-fix-test-when-not-executed-from-git-checkout.patch
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
 
 requirements:
   host:
     - colorama
     - meson >=0.63.3
     - ninja
-    - pyproject-metadata >=0.6.1
+    - pyproject-metadata >=0.7.1
     - pip
     - python >=3.7
     - tomli >=1.0.0
-    - typing-extensions >=3.7.4
   run:
     - colorama
     - meson >=0.63.3
     - ninja
-    - pyproject-metadata >=0.6.1
+    - pyproject-metadata >=0.7.1
     - python >=3.7
     - tomli >=1.0.0
-    - typing-extensions >=3.7.4
-    - wheel >=0.36.0
 
 test:
   imports:
@@ -47,6 +44,7 @@ test:
   source_files:
     - tests/
     - docs/
+    - pyproject.toml
   requires:
     - {{ compiler('c') }}
     - cython
