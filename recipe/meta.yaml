@@ -41,6 +41,7 @@ test:
   source_files:
     - tests/
     - docs/
+    - pyproject.toml
   requires:
     - {{ compiler('c') }}
     - cython
