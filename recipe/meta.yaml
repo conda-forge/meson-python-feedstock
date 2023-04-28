@@ -1,4 +1,4 @@
-{% set version = "0.13.0" %}
+{% set version = "0.13.1" %}
 
 package:
   name: meson-python
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/mesonbuild/meson-python/archive/refs/tags/{{ version }}.tar.gz
-  sha256: a34a5aa19503d265f9abe2bb1a36251ab7488d05f181f85a03d4b9f3c93bf729
+  sha256: 1637fc6b69b0b3152f5998fa0a6acfb4733c6ec246ea1e811e75e9ba8a53a64c
   patches:
     # Patch for `test_user_args` failure (fixed upstream, remove in next release)
     - patches/0001-TST-fix-test-when-not-executed-from-git-checkout.patch
