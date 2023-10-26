@@ -1,4 +1,4 @@
-{% set version = "0.14.0" %}
+{% set version = "0.15.0" %}
 
 package:
   name: meson-python
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/mesonbuild/meson-python/archive/refs/tags/{{ version }}.tar.gz
-  sha256: fcc416586bc2445cd0dadda87e3d969d07a609fce131810564d7c71e8f237afa
+  sha256: 7c29eb0d17bb7813f5e5c89f5df5f56eda446e263b4d4a9f5f286548a0eb385f
 
 build:
   noarch: python
@@ -37,8 +37,6 @@ test:
     - pip check
     # CPPFLAGS exports -DNDEBUG which is unwanted
     - export CPPFLAGS=${CPPFLAGS//-DNDEBUG/}
-    # PEP518 tests will always fail with conda setup
-    - rm tests/test_pep518.py
     - pytest tests -vv
   source_files:
     - tests/
