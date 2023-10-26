@@ -37,8 +37,6 @@ test:
     - pip check
     # CPPFLAGS exports -DNDEBUG which is unwanted
     - export CPPFLAGS=${CPPFLAGS//-DNDEBUG/}
-    # PEP518 tests will always fail with conda setup
-    - rm tests/test_pep518.py
     - pytest tests -vv
   source_files:
     - tests/
