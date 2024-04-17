@@ -15,17 +15,17 @@ build:
 
 requirements:
   host:
-    - colorama
     - meson >=0.63.3
     - ninja
+    - packaging >=19.0
     - pyproject-metadata >=0.7.1
     - pip
     - python >=3.7
     - tomli >=1.0.0
   run:
-    - colorama
     - meson >=0.63.3
     - ninja
+    - packaging >=19.0
     - pyproject-metadata >=0.7.1
     - python >=3.7
     - tomli >=1.0.0
