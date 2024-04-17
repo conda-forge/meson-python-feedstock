@@ -1,4 +1,4 @@
-{% set version = "0.15.0" %}
+{% set version = "0.16.0" %}
 
 package:
   name: meson-python
@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/mesonbuild/meson-python/archive/refs/tags/{{ version }}.tar.gz
-  sha256: 7c29eb0d17bb7813f5e5c89f5df5f56eda446e263b4d4a9f5f286548a0eb385f
+  sha256: 1f464e7a1e15971b70c8208d537fd0193b33c345aac5887af2806e55426ca571
 
 build:
   noarch: python
@@ -15,17 +15,17 @@ build:
 
 requirements:
   host:
-    - colorama
     - meson >=0.63.3
     - ninja
+    - packaging >=19.0
     - pyproject-metadata >=0.7.1
     - pip
     - python >=3.7
     - tomli >=1.0.0
   run:
-    - colorama
     - meson >=0.63.3
     - ninja
+    - packaging >=19.0
     - pyproject-metadata >=0.7.1
     - python >=3.7
     - tomli >=1.0.0
