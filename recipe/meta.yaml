@@ -51,6 +51,7 @@ test:
     - pip
     - pytest
     - pytest-mock
+    - wheel
 
 about:
   home: https://github.com/mesonbuild/meson-python
