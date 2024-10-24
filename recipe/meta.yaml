@@ -7,6 +7,8 @@ package:
 source:
   url: https://github.com/mesonbuild/meson-python/archive/refs/tags/{{ version }}.tar.gz
   sha256: 1e287ae4bbe9fb6a07dd695d4fe2d0611e3090c55b4a46536b4c57b7056f3690
+  patches:
+    - gh-696.patch
 
 build:
   noarch: python
