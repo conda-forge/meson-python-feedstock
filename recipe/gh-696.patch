@@ -1,0 +1,66 @@
+From 4f5c1362e06ceeb0da898019c5741b9a5dbadbb4 Mon Sep 17 00:00:00 2001
+From: Daniele Nicolodi <daniele@grinta.net>
+Date: Wed, 23 Oct 2024 14:04:47 +0200
+Subject: [PATCH 1/2] TST: fix test to work correctly outside git work
+ directory
+
+Fixes #695.
+---
+ tests/test_sdist.py | 13 +++++++------
+ 1 file changed, 7 insertions(+), 6 deletions(-)
+
+diff --git a/tests/test_sdist.py b/tests/test_sdist.py
+index 83739d4d..a601d416 100644
+--- a/tests/test_sdist.py
++++ b/tests/test_sdist.py
+@@ -213,12 +213,13 @@ def test_long_path(sdist_long_path):
+ 
+ 
+ def test_reproducible(package_pure, tmp_path):
+-    t1 = time.time()
+-    sdist_path_a = mesonpy.build_sdist(tmp_path / 'a')
+-    t2 = time.time()
+-    # Ensure that the two sdists are build at least one second apart.
+-    time.sleep(max(t1 + 1.0 - t2, 0.0))
+-    sdist_path_b = mesonpy.build_sdist(tmp_path / 'b')
++    with in_git_repo_context():
++        t1 = time.time()
++        sdist_path_a = mesonpy.build_sdist(tmp_path / 'a')
++        t2 = time.time()
++        # Ensure that the two sdists are build at least one second apart.
++        time.sleep(max(t1 + 1.0 - t2, 0.0))
++        sdist_path_b = mesonpy.build_sdist(tmp_path / 'b')
+ 
+     assert sdist_path_a == sdist_path_b
+     assert tmp_path.joinpath('a', sdist_path_a).read_bytes() == tmp_path.joinpath('b', sdist_path_b).read_bytes()
+
+From 869ffa6e574b5ac9f59a60144c4e7ac5f05a50aa Mon Sep 17 00:00:00 2001
+From: Daniele Nicolodi <daniele@grinta.net>
+Date: Wed, 23 Oct 2024 14:05:54 +0200
+Subject: [PATCH 2/2] TST: drop superfluous call to os.fspath()
+
+---
+ tests/test_sdist.py | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/tests/test_sdist.py b/tests/test_sdist.py
+index a601d416..ac56bcf0 100644
+--- a/tests/test_sdist.py
++++ b/tests/test_sdist.py
+@@ -2,7 +2,6 @@
+ #
+ # SPDX-License-Identifier: MIT
+ 
+-import os
+ import pathlib
+ import stat
+ import sys
+@@ -139,7 +138,7 @@ def bar():
+         try:
+             pathlib.Path('pure.py').write_text(new)
+             pathlib.Path('other.py').touch()
+-            sdist_path = mesonpy.build_sdist(os.fspath(tmp_path))
++            sdist_path = mesonpy.build_sdist(tmp_path)
+         finally:
+             pathlib.Path('pure.py').write_text(old)
+             pathlib.Path('other.py').unlink()
