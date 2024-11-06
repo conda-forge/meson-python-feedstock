@@ -1,0 +1,73 @@
+context:
+  version: 0.19.0
+
+package:
+  name: meson-python
+  version: ${{ version }}
+
+source:
+  url: https://github.com/mesonbuild/meson-python/archive/refs/tags/${{ version }}.tar.gz
+  sha256: 2d3efafb7e85e93d766a1ae46a53aec97fc4c97bdb07c341f803a32be10b29e9
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv
+
+requirements:
+  host:
+    - meson >=0.64.0
+    - ninja
+    - packaging >=23.2
+    - pyproject-metadata >=0.9.0
+    - pip
+    - python ${{ python_min }}.*
+    - tomli >=1.0.0
+  run:
+    - meson >=0.64.0
+    - ninja
+    - packaging >=23.2
+    - pyproject-metadata >=0.9.0
+    - python >=${{ python_min }}
+    - tomli >=1.0.0
+
+tests:
+  - python:
+      imports:
+        - mesonpy
+  - files:
+      source:
+        - tests/
+        - docs/
+        - pyproject.toml
+    requirements:
+      run:
+        - ${{ compiler('c') }}
+        - ${{ compiler('cxx') }}
+        - cmake
+        - cython
+        - git
+        - gitpython
+        - if: linux
+          then: patchelf
+        - pip
+        - python ${{ python_min }}.*
+        - pytest
+        - pytest-mock
+        - wheel
+    script:
+      - pip check
+      - export CPPFLAGS=${CPPFLAGS//-DNDEBUG/}
+      - pytest tests -vv
+
+about:
+  summary: Meson Python build backend (PEP 517)
+  license: MIT
+  license_file: LICENSE
+  homepage: https://github.com/mesonbuild/meson-python
+  documentation: https://meson-python.readthedocs.io/en/latest/
+
+extra:
+  recipe-maintainers:
+    - awvwgk
+    - rgommers
