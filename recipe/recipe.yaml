@@ -57,6 +57,8 @@ tests:
     script:
       - pip check
       - export CPPFLAGS=${CPPFLAGS//-DNDEBUG/}
+      - echo $SRC_DIR
+      - ls -a .
       - pytest ./tests -vv
 
 about:
