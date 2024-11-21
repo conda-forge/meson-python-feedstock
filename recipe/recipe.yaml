@@ -57,9 +57,7 @@ tests:
     script:
       - pip check
       - export CPPFLAGS=${CPPFLAGS//-DNDEBUG/}
-      - echo $SRC_DIR
-      - ls -a .
-      - pytest ./tests -vv
+      - pytest tests -vv
 
 about:
   summary: Meson Python build backend (PEP 517)
