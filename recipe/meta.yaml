@@ -11,7 +11,7 @@ source:
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
@@ -20,14 +20,14 @@ requirements:
     - packaging >=19.0
     - pyproject-metadata >=0.7.1
     - pip
-    - python >=3.7
+    - python {{ python_min }}
     - tomli >=1.0.0
   run:
     - meson >=0.63.3
     - ninja
     - packaging >=19.0
     - pyproject-metadata >=0.7.1
-    - python >=3.7
+    - python >={{ python_min }}
     - tomli >=1.0.0
 
 test:
@@ -52,6 +52,7 @@ test:
     - pytest
     - pytest-mock
     - wheel
+    - python {{ python_min }}
 
 about:
   home: https://github.com/mesonbuild/meson-python
