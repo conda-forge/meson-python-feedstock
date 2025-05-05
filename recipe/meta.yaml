@@ -14,19 +14,20 @@ build:
   number: 0
 
 requirements:
-  host:
-    - meson >=0.63.3
-    - ninja
-    - packaging >=19.0
-    - pyproject-metadata >=0.7.1
+  host
+    # meson >=0.64.0  # Py3.11 and earlier
+    - meson >=1.2.3  # Py3.12 and later    - ninja
+    - packaging >=23.2
+    - pyproject-metadata >=0.9.0
     - pip
     - python {{ python_min }}
     - tomli >=1.0.0
   run:
-    - meson >=0.63.3
+    # meson >=0.64.0  # Py3.11 and earlier
+    - meson >=1.2.3  # Py3.12 and later
     - ninja
-    - packaging >=19.0
-    - pyproject-metadata >=0.7.1
+    - packaging >=23.2
+    - pyproject-metadata >=0.9.0
     - python >={{ python_min }}
     - tomli >=1.0.0
 
