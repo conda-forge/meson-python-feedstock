@@ -14,7 +14,7 @@ build:
   number: 0
 
 requirements:
-  host
+  host:
     - meson >=1.2.3
     - ninja
     - packaging >=23.2
