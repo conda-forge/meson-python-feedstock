@@ -6,8 +6,8 @@ package:
   version: ${{ version }}
 
 source:
-  url: https://github.com/mesonbuild/meson-python/archive/refs/tags/${{ version }}.tar.gz
-  sha256: 2d3efafb7e85e93d766a1ae46a53aec97fc4c97bdb07c341f803a32be10b29e9
+  url: https://pypi.org/packages/source/m/meson-python/meson_python-${{ version }}.tar.gz
+  sha256: 9959d198aa69b57fcfd354a34518c6f795b781a73ed0656f4d01660160cc2553
 
 build:
   number: 1
