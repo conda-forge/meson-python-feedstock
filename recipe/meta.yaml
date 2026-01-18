@@ -44,6 +44,8 @@ test:
     - pyproject.toml
   requires:
     - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+    - cmake
     - cython
     - git
     - gitpython
