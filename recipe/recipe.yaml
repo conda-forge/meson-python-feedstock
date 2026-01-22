@@ -10,9 +10,11 @@ source:
   sha256: 9959d198aa69b57fcfd354a34518c6f795b781a73ed0656f4d01660160cc2553
 
 build:
-  number: 1
+  number: 2
   noarch: python
-  script: ${{ PYTHON }} -m pip install . -vv
+  # Avoid packaging a test package with a non-ascii filename, since that
+  # might not install depending on the target machine (see gh-29)
+  script: rm -rf tests/packages/encoding && ${{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
@@ -58,7 +60,7 @@ tests:
     script:
       - pip check
       - export CPPFLAGS=${CPPFLAGS//-DNDEBUG/}
-      - pytest tests -vv
+      - pytest tests -vv -k "not test_encoding"
 
 about:
   summary: Meson Python build backend (PEP 517)
