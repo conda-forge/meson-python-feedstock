@@ -1,16 +1,16 @@
 context:
-  version: 0.19.0
+  version: "0.20.0"
 
 package:
   name: meson-python
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/m/meson-python/meson_python-${{ version }}.tar.gz
-  sha256: 9959d198aa69b57fcfd354a34518c6f795b781a73ed0656f4d01660160cc2553
+  url: https://files.pythonhosted.org/packages/8b/f0/d794d7ed8a843a8a8947768f3b329d1e8601222dc95d930f4a5f9706cd6c/meson_python-${{ version }}.tar.gz
+  sha256: 6d9726ae6cd37e22f210c74b364b30180a68c20442e97ff09f3c566a414af738
 
 build:
-  number: 2
+  number: 0
   noarch: python
   # Avoid packaging a test package with a non-ascii filename, since that
   # might not install depending on the target machine (see gh-29)
