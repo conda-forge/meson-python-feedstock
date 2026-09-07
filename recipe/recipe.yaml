@@ -1,13 +1,13 @@
 context:
-  version: "0.20.0"
+  version: "0.21.0"
 
 package:
   name: meson-python
   version: ${{ version }}
 
 source:
-  url: https://files.pythonhosted.org/packages/8b/f0/d794d7ed8a843a8a8947768f3b329d1e8601222dc95d930f4a5f9706cd6c/meson_python-${{ version }}.tar.gz
-  sha256: 6d9726ae6cd37e22f210c74b364b30180a68c20442e97ff09f3c566a414af738
+  url: https://files.pythonhosted.org/packages/52/08/c57125a1d29b719aa4268df29fa41bb3d384d7751046624480bd8a094489/meson_python-${{ version }}.tar.gz
+  sha256: 595c2f40b76692c78274c87b733379d86562583e9ffb975487b9eafada03055b
 
 build:
   number: 0
